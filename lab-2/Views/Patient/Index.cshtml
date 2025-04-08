@@ -1,0 +1,22 @@
+﻿@model List<lab_2.Models.Patient>
+
+<h2 class="patient__title">Список пацієнтів</h2>
+<table class="patient__table">
+    <thead class="patient__table-head">
+    <tr class="patient__table-row">
+        <th class="patient__table-header">Ім'я</th>
+        <th class="patient__table-header">Вік</th>
+        <th class="patient__table-header">Стать</th>
+    </tr>
+    </thead>
+    <tbody class="patient__table-body">
+    @foreach (var p in Model)
+    {
+        <tr class="patient__table-row">
+            <td class="patient__table-data">@p.Name</td>
+            <td class="patient__table-data">@p.Age</td>
+            <td class="patient__table-data">@p.Gender</td>
+        </tr>
+    }
+    </tbody>
+</table>

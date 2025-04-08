@@ -1,0 +1,22 @@
+﻿@model List<lab_2.Models.Employee>
+
+<h2 class="employee__title">Список працівників</h2>
+<table class="employee__table">
+    <thead class="employee__table-head">
+    <tr class="employee__table-row">
+        <th class="employee__table-header">ПІБ</th>
+        <th class="employee__table-header">Телефон</th>
+        <th class="employee__table-header">Посада</th>
+    </tr>
+    </thead>
+    <tbody class="employee__table-body">
+    @foreach (var emp in Model)
+    {
+        <tr class="employee__table-row">
+            <td class="employee__table-data">@emp.FullName</td>
+            <td class="employee__table-data">@emp.Phone</td>
+            <td class="employee__table-data">@emp.Position</td>
+        </tr>
+    }
+    </tbody>
+</table>
