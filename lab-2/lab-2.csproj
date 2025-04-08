@@ -7,4 +7,8 @@
         <RootNamespace>lab_2</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="data\" />
+    </ItemGroup>
+
 </Project>

@@ -192,3 +192,5 @@
 /home/viktor/Downloads/lab2/lab-2/obj/Debug/net9.0/lab-2.pdb
 /home/viktor/Downloads/lab2/lab-2/obj/Debug/net9.0/lab-2.genruntimeconfig.cache
 /home/viktor/Downloads/lab2/lab-2/obj/Debug/net9.0/ref/lab-2.dll
+/home/viktor/Downloads/lab2/lab-2/obj/Debug/net9.0/lab-2.sourcelink.json
+/home/viktor/Downloads/lab2/lab-2/bin/Debug/net9.0/data/employees.json
