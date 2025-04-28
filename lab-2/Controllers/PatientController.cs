@@ -1,43 +1,51 @@
+using lab_2.Data;
 using lab_2.Models;
-using lab_2.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace lab_2.Controllers;
 
 public class PatientController : Controller
 {
-    private static readonly string _filePath = "data/patients.json";
-    private static List<Patient> _patients = JsonStorageService<Patient>.Load(_filePath);
+    private readonly AppDbContext _context;
+
+    public PatientController(AppDbContext context)
+    {
+        _context = context;
+    }
 
     [HttpGet]
     public IActionResult Index()
     {
-        return View(_patients);
+        var patients = _context.Patients.ToList();
+        return View(patients);
     }
 
     [HttpPost]
     public IActionResult Index(Patient patient)
     {
-        patient.Id = _patients.Count > 0 ? _patients.Max(p => p.Id) + 1 : 1;
-        _patients.Add(patient);
-        JsonStorageService<Patient>.Save(_patients, _filePath);
+        _context.Patients.Add(patient);
+        _context.SaveChanges();
         return RedirectToAction("Index");
     }
-    
+
     [HttpPost]
     public IActionResult Delete(int id)
     {
-        _patients = _patients.Where(p => p.Id != id).ToList();
-        JsonStorageService<Patient>.Save(_patients, _filePath);
+        var patient = _context.Patients.Find(id);
+        if (patient != null)
+        {
+            _context.Patients.Remove(patient);
+            _context.SaveChanges();
+        }
         return RedirectToAction("Index");
     }
 
     [HttpPost]
     public IActionResult DeleteAll()
     {
-        _patients.Clear();
-        JsonStorageService<Patient>.Save(_patients, _filePath);
+        _context.Patients.RemoveRange(_context.Patients);
+        _context.SaveChanges();
         return RedirectToAction("Index");
     }
-
 }

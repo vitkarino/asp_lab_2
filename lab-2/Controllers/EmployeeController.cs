@@ -1,43 +1,51 @@
+using lab_2.Data;
 using lab_2.Models;
-using lab_2.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace lab_2.Controllers;
 
 public class EmployeeController : Controller
 {
-    private static readonly string _filePath = "data/employees.json";
-    private static List<Employee> _employees = JsonStorageService<Employee>.Load(_filePath);
+    private readonly AppDbContext _context;
+
+    public EmployeeController(AppDbContext context)
+    {
+        _context = context;
+    }
 
     [HttpGet]
     public IActionResult Index()
     {
-        return View(_employees);
+        var employees = _context.Employees.ToList();
+        return View(employees);
     }
 
     [HttpPost]
     public IActionResult Index(Employee employee)
     {
-        employee.Id = _employees.Count > 0 ? _employees.Max(e => e.Id) + 1 : 1;
-        _employees.Add(employee);
-        JsonStorageService<Employee>.Save(_employees, _filePath);
+        _context.Employees.Add(employee);
+        _context.SaveChanges();
         return RedirectToAction("Index");
     }
-    
+
     [HttpPost]
     public IActionResult Delete(int id)
     {
-        _employees = _employees.Where(e => e.Id != id).ToList();
-        JsonStorageService<Employee>.Save(_employees, _filePath);
+        var employee = _context.Employees.Find(id);
+        if (employee != null)
+        {
+            _context.Employees.Remove(employee);
+            _context.SaveChanges();
+        }
         return RedirectToAction("Index");
     }
 
     [HttpPost]
     public IActionResult DeleteAll()
     {
-        _employees.Clear();
-        JsonStorageService<Employee>.Save(_employees, _filePath);
+        _context.Employees.RemoveRange(_context.Employees);
+        _context.SaveChanges();
         return RedirectToAction("Index");
     }
-
 }
