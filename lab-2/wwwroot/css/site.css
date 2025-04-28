@@ -1,31 +1,213 @@
-html {
-  font-size: 14px;
-}
+/* Custom CSS for Medical System */
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+/* Global styles */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #16a085;
+  --danger-color: #e74c3c;
+  --light-bg: #f8f9fa;
+  --dark-text: #2c3e50;
+  --light-text: #ecf0f1;
+  --border-radius: 0.5rem;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body {
-  margin-bottom: 60px;
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark-text);
+  background-color: #f5f7fa;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+h2 {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+/* Tables */
+.table {
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  vertical-align: middle;
+}
+
+.table th {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.table-bordered {
+  border-color: #e9ecef;
+}
+
+.table-bordered td, .table-bordered th {
+  border-color: #e9ecef;
+}
+
+/* Forms */
+.form-control {
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #2980b9;
+  border-color: #2980b9;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.5);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-danger:hover, .btn-danger:focus {
+  background-color: #c0392b;
+  border-color: #c0392b;
+  box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.5);
+}
+
+.btn-outline-danger {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Empty state */
+.text-muted {
+  color: #95a5a6 !important;
+  font-style: italic;
+}
+
+/* Add patient/employee forms */
+form.d-flex.flex-column {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Delete all button */
+form.mb-3.text-end .btn-danger {
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  form.d-flex.flex-column {
+    width: 100% !important;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Animation for new entries */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+tbody tr {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Home page */
+.display-4 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.text-center p {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+/* Custom container for home page */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  margin-top: 2rem;
 }

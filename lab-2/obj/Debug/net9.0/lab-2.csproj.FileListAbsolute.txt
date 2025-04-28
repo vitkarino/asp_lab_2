@@ -214,7 +214,6 @@ C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\lab-2.sourcelink.json
 C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\scopedcss\bundle\lab-2.styles.css
 C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\scopedcss\projectbundle\lab-2.bundle.scp.css
-C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\compressed\c84y285t9b-b9sayid5wm.gz
 C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\compressed\bl9lxc13r4-61n19gt1b8.gz
 C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\compressed\pocvt8lg52-xtxxf3hu2r.gz
 C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\compressed\0d19nird1v-t1cqhe9u97.gz
@@ -392,3 +391,4 @@ C:\Users\kisev\desktop\asp_lab_2\lab-2\bin\Debug\net9.0\ru\Microsoft.CodeAnalysi
 C:\Users\kisev\desktop\asp_lab_2\lab-2\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\kisev\desktop\asp_lab_2\lab-2\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\kisev\desktop\asp_lab_2\lab-2\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\kisev\Desktop\asp_lab_2\lab-2\obj\Debug\net9.0\compressed\c84y285t9b-g34uzma0dn.gz
